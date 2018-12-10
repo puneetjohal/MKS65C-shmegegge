@@ -7,8 +7,10 @@
 
 
 int main(){
+  //ftok
+  key_t key = ftok("/Systems/MKS65C-shmegegge/keyfile", 'R');
   //creating the segment and connecting
-  int shmid = shmget(200, 0700);
+  int shmid = shmget(key, 200, 0700);
   //getting a pointer to the segment
   char * data = shmat(shmid, (void *)0, 0);
   printf("segment created\n");
