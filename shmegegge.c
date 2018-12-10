@@ -23,14 +23,22 @@ int main(){
     ans[strlen(ans)-1] = 0;
     if (strcmp(ans,"y") == 0){
       printf("enter your edits:\n");
-      fgets(data, 200, stdin);
+      char buf[200];
+      fgets(buf, 200, stdin);
+      strcpy(data, buf);
+      printf("data: %s\n", data);
     }
     if (strcmp(ans,"n") == 0){
       i = 0;
       printf("do you want to delete the segment? (y/n)\n");
-      fgets(ans, 16, stdin);
-      if (strcmp(ans,"y") == 0){
-        //delete
+      char ans2[16];
+      fgets(ans2, 16, stdin);
+      ans2[strlen(ans2)-1] = 0;
+      if (strcmp(ans2,"y") == 0){
+        //detach from segment
+        shmdt(data);
+        //delete segment
+        shmctl(shmid, IPC_RMID, NULL);
       }
       else {
         i = 1;
