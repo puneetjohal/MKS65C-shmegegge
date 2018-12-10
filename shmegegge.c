@@ -21,11 +21,11 @@ int main(){
     char ans[16];
     fgets(ans, 16, stdin);
     ans[strlen(ans)-1] = 0;
-    if (strcmp(ans,'y') == 0){
+    if (strcmp(ans,"y") == 0){
       printf("enter your edits:\n");
       fgets(data, 200, stdin);
     }
-    if (strcmp(ans,'n') == 0){
+    if (strcmp(ans,"n") == 0){
       i = 0;
       printf("do you want to delete the segment? (y/n)\n");
       fgets(ans, 16, stdin);
