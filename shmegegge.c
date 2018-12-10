@@ -17,15 +17,15 @@ int main(){
   while (i){
     printf("do you want to change the segment? (y/n)\n");
     char ans[16];
-    fgets(ans);
+    fgets(ans, 16, stdin);
     if (strcmp(ans,"y") == 0){
       printf("enter your edits:\n");
-      fgets(data);
+      fgets(data, 200, stdin);
     }
     if (strcmp(ans,"n") == 0){
       i = 0;
       printf("do you want to delete the segment? (y/n)\n");
-      fgets(ans);
+      fgets(ans, 16, stdin);
       if (strcmp(ans,"y") == 0){
         //delete
       }
