@@ -14,7 +14,29 @@ int main(){
   //getting a pointer to the segment
   char * data = shmat(shmid, (void *)0, 0);
   printf("segment created\n");
+  printf("do you want to change the segment? (y/n)\n");
+  char buf[100];
+  fgets(buf, 100, stdin);
+  buf[strlen(buf)-1] = 0;
+  if (strcmp(buf,"y") == 0) {
+    printf("enter your edits:\n");
+    /*char edit[200];
+    fgets(edit, 200, stdin);
+    strcpy(data, edit);*/
+    //fgets(data, 200, stdin);
+    //printf("data: %s\n", data);
+    printf("methods shown in documentation dont actually work :(\n");
+  }
+  //else {
+    printf("press enter to delete the segment");
+    fgets(buf, 100, stdin);
+    //detach from segment
+    shmdt(data);
+    //delete segment
+    shmctl(shmid, IPC_RMID, NULL);
+  //}
 
+/*
   int i = 1;
   while (i){
     printf("do you want to change the segment? (y/n)\n");
@@ -45,5 +67,6 @@ int main(){
       }
     }
   }
+*/
   return 0;
 }
